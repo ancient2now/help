@@ -70,15 +70,39 @@ git log 后面加上目录名，便会只显示该目录下日志,加上 -p 就�
 
 ## 五. 场景模拟
 
+*不考虑存在冲突的情况，遇到冲突自行处理*
+
 ### 删除远程服务器文件同时保留本地文件
 
 * git rm --cached filename / -r directory
 * git commit -m "xxx"
 * git push
 
+### 暂存代码
+
+**自己正在写新代码，突然有个500bug需要处理提交；总之就是，代码写了一半，需要暂存一下，解决如下**
+
+1. 使用git的暂存区功能 [stash](https://git-scm.com/book/zh/v1/Git-%E5%B7%A5%E5%85%B7-%E5%82%A8%E8%97%8F%EF%BC%88Stashing%EF%BC%89)
+
+使用 `git stash` 指令暂存代码，将自上次commit后修改的代码全部存储在暂存区，看上去没有修改
+
+想要将修改的代码取出来可以使用 `git stash apply` (原修改的代码还在暂存区)和 `git stash pop` (原修改的代码立即从暂存区移除)将代码取出
+
+取出后继续开发代码
+
+2. 使用git的rebase功能
+
+你可以就先commit代码，然后新切master分支解决bug提交，然后回来继续开发
+
+继续开发完成后commit代码，使用rebase功能将两次commit进行rebase, 合并为一个commit
+
+[点击参考博客](https://www.jianshu.com/p/964de879904a)
+
 ### 修改上一次commit message
 
 `git commit --amend`
+
+### 撤销过去某次的commit
 
 
 

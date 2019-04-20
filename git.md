@@ -27,7 +27,7 @@
             
 推送到远程仓库中 `git push `                            
     
-接下来的三行可以让你git push的时候无需输入github的用户名和密码
+接下来的三行可以让你git push的时候无需输入github的用户名和密码  
 `git remote rm origin`  
 `git remote add origin git@github.com:(your github name)/(your repository name)`  
 `git push -u origin master`  
